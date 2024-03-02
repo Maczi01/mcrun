@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "nx affected:lint && nx affected:test",
+    "commit-msg": "npx --no-install commitlint --edit $1"
+  }
+}
