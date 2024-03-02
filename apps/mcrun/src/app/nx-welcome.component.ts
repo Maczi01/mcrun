@@ -836,7 +836,7 @@ nx g &#64;nx/angular:component ui/src/lib/button</pre>
               </svg>
               View project details
             </summary>
-            <pre>nx show project mcrun --web</pre>
+            <pre>nx show project mcrun</pre>
           </details>
           <details>
             <summary>

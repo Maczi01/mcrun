@@ -1,0 +1,9 @@
+{
+  "name": "types",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "types/src",
+  "prefix": "mcrun",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

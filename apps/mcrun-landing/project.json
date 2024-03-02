@@ -1,0 +1,61 @@
+{
+  "name": "mcrun-landing",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/mcrun-landing/src",
+  "targets": {
+    "build": {
+      "executor": "@analogjs/platform:vite",
+      "outputs": [
+        "{options.outputPath}",
+        "{workspaceRoot}/dist/apps/mcrun-landing/.nitro",
+        "{workspaceRoot}/dist/apps/mcrun-landing/ssr",
+        "{workspaceRoot}/dist/apps/mcrun-landing/analog"
+      ],
+      "options": {
+        "main": "apps/mcrun-landing/src/main.ts",
+        "configFile": "apps/mcrun-landing/vite.config.ts",
+        "outputPath": "dist/apps/mcrun-landing/client",
+        "tsConfig": "apps/mcrun-landing/tsconfig.app.json"
+      },
+      "defaultConfiguration": "production",
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@analogjs/platform:vite-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "mcrun-landing:build",
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "mcrun-landing:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "mcrun-landing:build:production"
+        }
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "mcrun-landing:build"
+      }
+    },
+    "test": {
+      "executor": "@analogjs/platform:vitest",
+      "outputs": ["{projectRoot}/coverage"]
+    }
+  },
+  "tags": []
+}
