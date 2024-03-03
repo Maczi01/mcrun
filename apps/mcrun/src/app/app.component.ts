@@ -7,8 +7,14 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   imports: [NxWelcomeComponent, RouterModule],
   selector: 'mcrun-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'mcrun';
+  someArray = [{
+    name: 'one',
+    value: 1
+  }, {
+    name: 'two',
+    value: 2
+  }];
 }
