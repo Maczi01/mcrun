@@ -48,6 +48,7 @@
     "@nx/jest": "18.0.6",
     "@nx/js": "18.0.6",
     "@nx/playwright": "18.0.6",
+    "@nx/storybook": "^18.0.6",
     "@nx/vite": "^18.0.0",
     "@nx/workspace": "18.0.6",
     "@playwright/test": "^1.36.0",
