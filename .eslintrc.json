@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@typescript-eslint", "@angular-eslint", "@nx"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -18,25 +18,54 @@
               }
             ]
           }
-        ]
+        ],
+        "complexity": ["error", 10],
+        "no-unused-vars": "error",
+        "no-console": "warn",
+        "eqeqeq": ["error", "smart"]
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "extends": [
+        "plugin:@nx/typescript",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "project": ["tsconfig.*?.json"]
+      },
+      "rules": {
+        "@typescript-eslint/strict-boolean-expressions": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@angular-eslint/directive-selector": ["error", { "type": "attribute", "prefix": "app", "style": "camelCase" }],
+        "@angular-eslint/component-selector": ["error", { "type": "element", "prefix": "app", "style": "kebab-case" }],
+        "@typescript-eslint/no-unused-expressions": "error",
+        "@typescript-eslint/explicit-function-return-type": "warn"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nx/javascript"],
-      "rules": {}
+      "extends": ["plugin:@nx/javascript", "eslint:recommended"],
+      "rules": {
+        "strict": ["error", "global"],
+        "no-var": "error",
+        "prefer-const": "error"
+      }
     },
     {
       "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
       "env": {
         "jest": true
       },
-      "rules": {}
+      "rules": {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
+      }
     }
   ]
 }
