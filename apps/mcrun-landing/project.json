@@ -34,7 +34,7 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "mcrun-landing:build",
-        "port": 4300
+        "port": 4500
       },
       "configurations": {
         "development": {
