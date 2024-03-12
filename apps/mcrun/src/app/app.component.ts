@@ -9,12 +9,4 @@ import {HeaderComponent} from "./components/header/header.component";
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'mcrun';
-  someArray = [{
-    name: 'one',
-    value: 1
-  }, {
-    name: 'two',
-    value: 2
-  }];
 }
