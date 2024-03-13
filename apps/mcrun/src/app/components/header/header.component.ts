@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   title = 'McRun';
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {
   }
 
