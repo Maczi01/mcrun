@@ -1,70 +1,117 @@
 {
-  "name": "mcrun",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "prefix": "mcrun",
-  "sourceRoot": "apps/mcrun/src",
-  "tags": [],
-  "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/mcrun",
-        "index": "apps/mcrun/src/index.html",
-        "browser": "apps/mcrun/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/mcrun/tsconfig.app.json",
-        "assets": ["apps/mcrun/src/favicon.ico", "apps/mcrun/src/assets"],
-        "styles": ["apps/mcrun/src/styles.css"],
-        "scripts": [],
-        "server": "apps/mcrun/src/main.server.ts",
-        "prerender": true,
-        "ssr": {
-          "entry": "apps/mcrun/server.ts"
-        }
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+    "name": "mcrun",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "prefix": "mcrun",
+    "sourceRoot": "apps/mcrun/src",
+    "tags": [],
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/apps/mcrun",
+                "index": "apps/mcrun/src/index.html",
+                "browser": "apps/mcrun/src/main.ts",
+                "polyfills": ["zone.js"],
+                "tsConfig": "apps/mcrun/tsconfig.app.json",
+                "assets": ["apps/mcrun/src/favicon.ico", "apps/mcrun/src/assets"],
+                "styles": ["apps/mcrun/src/styles.css"],
+                "scripts": [],
+                "server": "apps/mcrun/src/main.server.ts",
+                "prerender": true,
+                "ssr": {
+                    "entry": "apps/mcrun/server.ts"
+                }
             },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": true
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "mcrun:build:production"
+                },
+                "development": {
+                    "buildTarget": "mcrun:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "buildTarget": "mcrun:build"
             }
-          ],
-          "outputHashing": "all"
         },
-        "development": {
-          "optimization": false,
-          "extractLicenses": false,
-          "sourceMap": true
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "buildTarget": "mcrun:build:production"
+        "storybook": {
+            "executor": "@storybook/angular:start-storybook",
+            "options": {
+                "port": 4400,
+                "configDir": "apps/mcrun/.storybook",
+                "browserTarget": "mcrun:build",
+                "compodoc": false
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
         },
-        "development": {
-          "buildTarget": "mcrun:build:development"
+        "build-storybook": {
+            "executor": "@storybook/angular:build-storybook",
+            "outputs": ["{options.outputDir}"],
+            "options": {
+                "outputDir": "dist/storybook/mcrun",
+                "configDir": "apps/mcrun/.storybook",
+                "browserTarget": "mcrun:build",
+                "compodoc": false
+            },
+            "configurations": {
+                "ci": {
+                    "quiet": true
+                }
+            }
+        },
+        "test-storybook": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "test-storybook -c apps/mcrun/.storybook --url=http://localhost:4400"
+            }
+        },
+        "static-storybook": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "buildTarget": "mcrun:build-storybook",
+                "staticFilePath": "dist/storybook/mcrun"
+            },
+            "configurations": {
+                "ci": {
+                    "buildTarget": "mcrun:build-storybook:ci"
+                }
+            }
         }
-      },
-      "defaultConfiguration": "development"
-    },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "buildTarget": "mcrun:build"
-      }
     }
-  }
 }
