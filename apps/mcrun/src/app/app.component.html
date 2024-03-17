@@ -1,12 +1,9 @@
-<mcrun-app-header></mcrun-app-header>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Welcome to mcrun-nx-welcome!</h1>
-    </div>
-<!--    <ul>-->
-<!--      <li class="text-green-600 text-4xl">{{ someArray[0].name }}</li>-->
-<!--      <li class="text-green-600 text-4xl">{{ someArray[1].name }}</li>-->
-<!--    </ul>-->
+<div class="flex flex-col h-screen">
+  <mcrun-app-header></mcrun-app-header>
+  <div class="flex flex-grow overflow-hidden">
+    <mcrun-app-aside> class="w-64 overflow-y-auto"></mcrun-app-aside>
+    <main class="flex-grow overflow-y-auto p-4">
+      <router-outlet></router-outlet> <!-- Main content is loaded here -->
+    </main>
   </div>
-</div> <router-outlet></router-outlet>
+</div>
