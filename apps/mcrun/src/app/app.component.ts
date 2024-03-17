@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {HeaderComponent} from "./components/header/header.component";
+import {HeaderComponent} from "@mcrun/ui";
+// import {HeaderComponent} from "./components/header/header.component";
 
 @Component({
   standalone: true,

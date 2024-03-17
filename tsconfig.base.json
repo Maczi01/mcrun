@@ -15,7 +15,8 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@mcrun/types": ["types/src/index.ts"]
+            "@mcrun/types": ["types/src/index.ts"],
+            "@mcrun/ui": ["ui/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
