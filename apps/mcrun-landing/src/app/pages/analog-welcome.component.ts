@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'mcrun-landing-analog-welcome',
@@ -9,6 +10,7 @@ import { Component } from '@angular/core';
   },
   template: `
     <main class="flex-1 mx-auto">
+      <h1 class="text-blue-500 text-4xl font-bold"></h1>
       <app-header></app-header>
       <section class="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
         <div class="flex max-w-[64rem] flex-col items-center gap-4 text-center">
@@ -21,7 +23,7 @@ import { Component } from '@angular/core';
             class="rounded-2xl bg-zinc-200 px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             target="_blank"
             href="https://twitter.com/analogjs"
-            >Follow along on Twitter</a
+          >Follow along on Twitter</a
           >
           <h1
             class="font-heading font-medium text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
@@ -33,20 +35,20 @@ import { Component } from '@angular/core';
             class="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8"
           >
             Analog is for building applications and websites with Angular.
-            <br />Powered by Vite.
+            <br/>Powered by Vite.
           </p>
           <div class="space-x-4">
             <a
               class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-zinc-950 text-zinc-50 hover:bg-zinc-950/90 h-11 px-8 rounded-md"
               href="https://analogjs.org"
-              >Read the docs</a
+            >Read the docs</a
             ><a
-              target="_blank"
-              rel="noreferrer"
-              class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input hover:bg-zinc-100 hover:text-zinc-950 h-11 px-8 rounded-md"
-              href="https://github.com/analogjs/analog"
-              >Star on GitHub</a
-            >
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input hover:bg-zinc-100 hover:text-zinc-950 h-11 px-8 rounded-md"
+            href="https://github.com/analogjs/analog"
+          >Star on GitHub</a
+          >
           </div>
         </div>
       </section>
@@ -72,6 +74,9 @@ import { Component } from '@angular/core';
       </section>
     </main>
   `,
+  imports: [
+    HeaderComponent
+  ]
 })
 export class AnalogWelcomeComponent {
   public count = 0;
