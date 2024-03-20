@@ -16,6 +16,10 @@
         "main": "apps/mcrun-landing/src/main.ts",
         "configFile": "apps/mcrun-landing/vite.config.ts",
         "outputPath": "dist/apps/mcrun-landing/client",
+        "styles": [
+          "apps/mcrun/src/styles.css",
+          "node_modules/mapbox-gl/dist/mapbox-gl.css"
+        ],
         "tsConfig": "apps/mcrun-landing/tsconfig.app.json"
       },
       "defaultConfiguration": "production",

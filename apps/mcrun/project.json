@@ -16,7 +16,10 @@
                 "polyfills": ["zone.js"],
                 "tsConfig": "apps/mcrun/tsconfig.app.json",
                 "assets": ["apps/mcrun/src/favicon.ico", "apps/mcrun/src/assets"],
-                "styles": ["apps/mcrun/src/styles.css"],
+                "styles": [
+                  "apps/mcrun/src/styles.css",
+                  "node_modules/mapbox-gl/dist/mapbox-gl.css"
+                ],
                 "scripts": [],
                 "server": "apps/mcrun/src/main.server.ts",
                 "prerender": true,
