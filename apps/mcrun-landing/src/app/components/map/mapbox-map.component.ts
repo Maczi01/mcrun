@@ -5,7 +5,6 @@ import * as mapboxgl from 'mapbox-gl';
   standalone: true,
   selector: 'app-mapbox-map',
   templateUrl: './mapbox-map.component.html',
-  // styleUrls: ['./mapbox-map.component.css']
 })
 export class MapboxMapComponent implements OnInit {
 
