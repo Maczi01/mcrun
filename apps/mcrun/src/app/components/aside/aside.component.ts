@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   standalone: true,
@@ -6,13 +6,22 @@ import { Component } from '@angular/core';
   templateUrl: './aside.component.html',
 })
 export class AsideComponent {
-  title = 'McRun';
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() {
-  }
+  menuItems = [
+    {
+      title: 'Create new run',
+      url: '/dashboard',
+    },
+    {
+      title: 'Runs',
+      url: '/users',
+    },
+  ]
 
-  onMenuClick() {
+  onMenuClick(e: Event): void {
     console.log('Menu clicked');
+    console.log(e.currentTarget);
   }
+
+
 }
