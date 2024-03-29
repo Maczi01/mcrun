@@ -8,7 +8,7 @@
       @for (link of menuItems; track link.title){
         <li>
           <a
-          (click)="onMenuClick=$event"
+          (click)="onMenuClick($event)"
             class="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-900 bg-gray-200 rounded-lg dark:text-gray-100 dark:bg-gray-700"
           >
             <span>{{ link.title }}</span>

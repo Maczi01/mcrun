@@ -18,9 +18,11 @@ export class AsideComponent {
     },
   ]
 
-  onMenuClick(e: Event): void {
+  onMenuClick(event: MouseEvent): void {
+    const element = event.target as HTMLElement;
     console.log('Menu clicked');
-    console.log(e.currentTarget);
+    console.log(element.getAttribute('name'));
+
   }
 
 
