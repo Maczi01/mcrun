@@ -9,6 +9,7 @@
             <li>
                 <a
                     (click)="onMenuClick(link.title)"
+                    routerLink="{{ link.url }}"
                     class="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-900 bg-gray-200 rounded-lg dark:text-gray-100 dark:bg-gray-700"
                 >
                     <span>{{ link.title }}</span>
