@@ -1,20 +1,20 @@
 <aside
-  id="default-sidebar"
-  class="fixed top-14 left-0 z-40 w-56 h-screen transition-transform -translate-x-full sm:translate-x-0"
-  aria-label="Sidebar"
+    id="default-sidebar"
+    class="fixed top-14 left-0 z-40 w-56 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar"
 >
-  <div class="h-full px-3 py-4 overflow-y-auto bg-amber-400 dark:bg-gray-800">
-    <ul class="space-y-2 font-medium">
-      @for (link of menuItems; track link.title){
-        <li>
-          <a
-          (click)="onMenuClick($event)"
-            class="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-900 bg-gray-200 rounded-lg dark:text-gray-100 dark:bg-gray-700"
-          >
-            <span>{{ link.title }}</span>
-          </a>
-        </li>
-      }
-    </ul>
-  </div>
+    <div class="h-full px-3 py-4 overflow-y-auto bg-amber-400 dark:bg-gray-800">
+        <ul class="space-y-2 font-medium">
+            @for (link of menuItems; track link.title){
+            <li>
+                <a
+                    (click)="onMenuClick(link.title)"
+                    class="flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-900 bg-gray-200 rounded-lg dark:text-gray-100 dark:bg-gray-700"
+                >
+                    <span>{{ link.title }}</span>
+                </a>
+            </li>
+            }
+        </ul>
+    </div>
 </aside>

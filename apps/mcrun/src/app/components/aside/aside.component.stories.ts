@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import {AsideComponent} from "./aside.component";
+import { AsideComponent } from './aside.component';
 
 const meta: Meta<AsideComponent> = {
     component: AsideComponent,
