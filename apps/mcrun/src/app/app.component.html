@@ -1,10 +1,9 @@
 <div class="flex flex-col h-screen">
   <mcrun-app-header></mcrun-app-header>
-  <div class="flex flex-grow overflow-hidden">
-    <mcrun-app-aside> class="w-64 overflow-y-auto"></mcrun-app-aside>
+  <div class="flex flex-grow overflow-hidden ml-64">
+    <mcrun-app-aside></mcrun-app-aside>
     <main class="flex-grow overflow-y-auto p-4">
       <router-outlet/>
-      Main content is loaded here
     </main>
   </div>
 </div>

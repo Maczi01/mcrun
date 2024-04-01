@@ -11,11 +11,11 @@ export class AsideComponent {
     menuItems = [
         {
             title: 'Create new run',
-            url: '/dashboard',
+            url: '/new',
         },
         {
             title: 'Runs',
-            url: '/users',
+            url: '/runs',
         },
     ];
 

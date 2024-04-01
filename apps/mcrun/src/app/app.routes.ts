@@ -1,14 +1,14 @@
 import { Route } from '@angular/router';
-import { AsideComponent } from './components/aside/aside.component';
 import { HeaderComponent } from '@mcrun/ui';
+import { ListComponent } from './components/list/list.component';
 
 export const appRoutes: Route[] = [
     {
-        path: 'dashboard',
-        component: AsideComponent,
+        path: 'runs',
+        component: ListComponent,
     },
     {
-        path: 'users',
+        path: 'new',
         component: HeaderComponent,
     },
 ];

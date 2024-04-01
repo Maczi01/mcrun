@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     standalone: true,
-    selector: 'mcrun-app-header',
-    templateUrl: './header.component.html',
+    selector: 'mcrun-app-list-component',
+    templateUrl: './list.component.html',
 })
 export class ListComponent {
     title = 'McRun';
