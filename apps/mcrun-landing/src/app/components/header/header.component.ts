@@ -1,19 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  standalone: true,
-  selector: 'app-header', // Selektor, który używasz do umieszczania komponentu w szablonie HTML.
-  templateUrl: './header.component.html', // Ścieżka do pliku szablonu HTML dla tego komponentu.
+    standalone: true,
+    selector: 'app-header',
+    templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  title = 'McRun';
+    title = 'McRun';
 
-  constructor() {
-    // Konstruktor dla inicjalizacji komponentu.
-  }
+    constructor() {}
 
-  // Możesz dodać metody, które będą obsługiwać różne zdarzenia, np. kliknięcie przycisku w nagłówku.
-  onMenuClick() {
-    console.log('Menu clicked');
-  }
+    onMenuClick() {
+        console.log('Menu clicked');
+    }
 }
