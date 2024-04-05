@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 export class Run {
   name: string;
+  date: string;
 }
 @Component({
   standalone: true,
