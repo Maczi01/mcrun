@@ -3,6 +3,8 @@ import {DatePipe} from "@angular/common";
 export class Run {
   name: string;
   date: string;
+  place: string;
+  type: string;
 }
 @Component({
     standalone: true,
