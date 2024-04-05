@@ -3,7 +3,7 @@ import * as mapboxgl from 'mapbox-gl';
 
 @Component({
   standalone: true,
-  selector: 'app-mapbox-map',
+  selector: 'mapbox-map',
   templateUrl: './mapbox-map.component.html',
 })
 export class MapboxMapComponent implements OnInit {
