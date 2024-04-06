@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import {Run} from "../run-item/run-item.component";
+import {StateService} from "../../service/state.service";
 
 class Place {
     name: string;
@@ -14,39 +16,14 @@ class Place {
     templateUrl: './mapbox-map.component.html',
 })
 export class MapboxMapComponent implements OnInit {
+
+    // list: RunListState = {
+    private runList = inject(StateService)
     map: mapboxgl.Map;
     style = 'mapbox://styles/mapbox/streets-v11';
     lat = 53.27515756;
     lng = -7.877257;
     zoom = 6.5;
-
-    randomPlaces: Place[] = [
-        {
-            name: 'Run Omagh!',
-            latitude: 53.6272,
-            longitude: -8.18812,
-        },
-        {
-            name: 'Run Omagh!',
-            latitude: 53.2735,
-            longitude: -7.77832032,
-        },
-        {
-            name: 'Run Omagh!',
-            latitude: 53.4239,
-            longitude: -7.94069,
-        },
-        {
-            name: 'Run Omagh!',
-            latitude: 54.5092,
-            longitude: -6.04676,
-        },
-        {
-            name: 'Run Omagh!',
-            latitude: 54.3466,
-            longitude: -7.64167,
-        },
-    ];
 
     constructor() {}
 
@@ -62,14 +39,9 @@ export class MapboxMapComponent implements OnInit {
         });
 
         this.map.on('load', () => {
-            // Disable scroll zoom
-            // this.map.scrollZoom.disable();
-
-            // Existing code to add markers
-            this.randomPlaces.forEach(place => {
+          this.runList.runList.forEach(place => {
                 new mapboxgl.Marker()
                     .setLngLat([place.longitude, place.latitude])
-                    // .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(place.name))
                     .addTo(this.map);
             });
         });

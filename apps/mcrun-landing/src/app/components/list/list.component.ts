@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RunItemComponent } from '../run-item/run-item.component';
+import { StateService } from '../../service/state.service';
 
 @Component({
     standalone: true,
@@ -7,4 +8,10 @@ import { RunItemComponent } from '../run-item/run-item.component';
     imports: [RunItemComponent],
     templateUrl: './list.component.html',
 })
-export class ListComponent {}
+export class ListComponent {
+    stateService = inject(StateService);
+
+    get runs() {
+        return this.stateService.runList;
+    }
+}
