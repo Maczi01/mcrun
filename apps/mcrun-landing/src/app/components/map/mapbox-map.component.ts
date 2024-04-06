@@ -1,14 +1,7 @@
-import {Component, inject, OnInit} from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import {Run} from "../run-item/run-item.component";
-import {StateService} from "../../service/state.service";
-
-class Place {
-    name: string;
-    latitude: number;
-    longitude: number;
-}
+import { StateService } from '../../service/state.service';
 
 @Component({
     standalone: true,
@@ -16,9 +9,8 @@ class Place {
     templateUrl: './mapbox-map.component.html',
 })
 export class MapboxMapComponent implements OnInit {
-
     // list: RunListState = {
-    private runList = inject(StateService)
+    private runList = inject(StateService);
     map: mapboxgl.Map;
     style = 'mapbox://styles/mapbox/streets-v11';
     lat = 53.27515756;
@@ -39,8 +31,8 @@ export class MapboxMapComponent implements OnInit {
         });
 
         this.map.on('load', () => {
-          this.runList.runList.forEach(place => {
-                new mapboxgl.Marker()
+            this.runList.runList.forEach(place => {
+                new mapboxgl.Marker({ color: place.place === 'Enniskillen' ? 'red' : 'blue'})
                     .setLngLat([place.longitude, place.latitude])
                     .addTo(this.map);
             });
