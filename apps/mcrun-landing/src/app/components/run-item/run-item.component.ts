@@ -1,11 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {DatePipe} from "@angular/common";
-export class Run {
-  name: string;
-  date: string;
-  place: string;
-  type: string;
-}
+import {Run} from "../../types";
+
 @Component({
     standalone: true,
     selector: 'run-item-component',
