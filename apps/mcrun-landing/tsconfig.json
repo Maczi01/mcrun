@@ -21,7 +21,6 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "strictPropertyInitialization": false,
     "noFallthroughCasesInSwitch": true
   },
   "angularCompilerOptions": {
