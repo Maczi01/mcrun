@@ -18,7 +18,9 @@ export class MapboxMapComponent implements OnInit {
     lng = -7.877257;
     zoom = 6.5;
 
-    constructor() {}
+    constructor(map: mapboxgl.Map) {
+        this.map = map;
+    }
 
     private markers = new Map<Run, mapboxgl.Marker>();
 
