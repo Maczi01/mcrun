@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Run } from '../types';
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
     providedIn: 'root',
@@ -39,4 +40,14 @@ export class StateService {
             longitude: -6.04676,
         },
     ];
+  activeRunSubject = new BehaviorSubject<Run | null>(null);
+  activeRun$ = this.activeRunSubject.asObservable();
+
+  setActiveRun(run: Run): void {
+    this.activeRunSubject.next(run);
+  }
+
+  getRuns(): Run[] {
+    return this.runList;
+  }
 }

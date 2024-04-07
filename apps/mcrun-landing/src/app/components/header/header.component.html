@@ -2,11 +2,11 @@
   <nav class="container mx-auto flex justify-between items-center">
     <p class="font-bold">McRun.ie</p>
     <div class="flex gap-16">
-      <a href="#" class="hover:text-gray-300">Home</a>
-      <a href="#" class="hover:text-gray-300">Map</a>
-      <a href="#" class="hover:text-gray-300">Articles</a>
-      <a href="#" class="hover:text-gray-300">Training & Health</a>
-      <a href="#" class="hover:text-gray-300">Runner statistic</a>
+    @for (link of links; track link.title) {
+      <a [routerLink]=[link.path] class="hover:text>gray-300">{{link.title}}</a>
+      }
+
+
     </div>
     <div>
       <button class="border-2 py-2 px-8 mx-4 text-blue-600 rounded-md border-blue-600">Contact now</button>

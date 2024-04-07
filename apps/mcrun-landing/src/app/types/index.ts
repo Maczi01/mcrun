@@ -1,4 +1,4 @@
-export class Run {
+export type Run = {
     name: string;
     latitude: number;
     longitude: number;

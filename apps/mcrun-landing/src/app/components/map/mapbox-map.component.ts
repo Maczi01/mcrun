@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { StateService } from '../../service/state.service';
+import { Run } from '../../types';
 
 @Component({
     standalone: true,
@@ -19,6 +20,8 @@ export class MapboxMapComponent implements OnInit {
 
     constructor() {}
 
+    private markers = new Map<Run, mapboxgl.Marker>();
+
     ngOnInit() {
         mapboxgl as typeof mapboxgl;
         this.map = new mapboxgl.Map({
@@ -31,11 +34,27 @@ export class MapboxMapComponent implements OnInit {
         });
 
         this.map.on('load', () => {
-            this.runList.runList.forEach(place => {
-                new mapboxgl.Marker({ color: place.place === 'Enniskillen' ? 'red' : 'blue'})
-                    .setLngLat([place.longitude, place.latitude])
+            this.runList.getRuns().forEach(run => {
+                const marker = new mapboxgl.Marker({ color: 'blue' })
+                    .setLngLat([run.longitude, run.latitude])
                     .addTo(this.map);
+
+                this.markers.set(run, marker);
             });
         });
+
+        this.runList.activeRun$.subscribe(activeRun => {
+            this.markers.forEach((marker, run) => {
+                marker.getElement().style.backgroundColor = run === activeRun ? 'yellow' : ''; // Adjust the logic if needed
+            });
+        });
+
+        // this.map.on('load', () => {
+        //     this.runList.runList.forEach(place => {
+        //         new mapboxgl.Marker({ color: place.place === 'Enniskillen' ? 'red' : 'blue'})
+        //             .setLngLat([place.longitude, place.latitude])
+        //             .addTo(this.map);
+        //     });
+        // });
     }
 }

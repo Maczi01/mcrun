@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RunItemComponent } from '../run-item/run-item.component';
 import { StateService } from '../../service/state.service';
+import {Run} from "../../types";
 
 @Component({
     standalone: true,
@@ -9,9 +10,17 @@ import { StateService } from '../../service/state.service';
     templateUrl: './list.component.html',
 })
 export class ListComponent {
-    stateService = inject(StateService);
+  stateService = inject(StateService);
 
-    get runs() {
-        return this.stateService.runList;
-    }
+  get runs() {
+    return this.stateService.getRuns();
+  }
+
+  setActiveRun(run: any): void {
+    this.stateService.setActiveRun(run);
+  }
+
+  isActive(run: any): boolean {
+    return this.stateService.activeRunSubject.value?.name === run.name;
+  }
 }
