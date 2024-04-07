@@ -16,7 +16,11 @@ export default defineConfig(({ mode }) => {
       commonjsOptions: { transformMixedEsModules: true },
       target: ['es2020'],
     },
-    plugins: [analog(), nxViteTsPaths(), splitVendorChunkPlugin()],
+    plugins: [analog({
+      nitro: {
+        preset: 'vercel',
+      },
+    }), nxViteTsPaths(), splitVendorChunkPlugin()],
     test: {
       globals: true,
       environment: 'jsdom',
