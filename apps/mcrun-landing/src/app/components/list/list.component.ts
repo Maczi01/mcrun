@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RunItemComponent } from '../run-item/run-item.component';
 import { StateService } from '../../service/state.service';
-import {Run} from "../../types";
 
 @Component({
     standalone: true,
