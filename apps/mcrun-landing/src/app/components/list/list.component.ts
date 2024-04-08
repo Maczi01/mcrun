@@ -19,7 +19,4 @@ export class ListComponent {
     this.stateService.setActiveRun(run);
   }
 
-  isActive(run: any): boolean {
-    return this.stateService.activeRunSubject.value?.name === run.name;
-  }
 }

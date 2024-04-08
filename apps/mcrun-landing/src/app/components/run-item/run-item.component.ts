@@ -11,7 +11,7 @@ import {Run} from "../../types";
 export class RunItemComponent {
     @Input() run: Run;
 
-    constructor(run: Run) {
-        this.run = run;
-    }
+    // constructor(run: Run) {
+    //     this.run = run;
+    // }
 }
