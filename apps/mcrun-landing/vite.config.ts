@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 
 import analog from '@analogjs/platform';
-import { defineConfig, Plugin, splitVendorChunkPlugin } from 'vite';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import {defineConfig, Plugin, splitVendorChunkPlugin} from 'vite';
+import {nxViteTsPaths} from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({mode}) => {
   return {
     root: __dirname,
     publicDir: 'src/public',
@@ -13,14 +13,17 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: '../../dist/apps/mcrun-landing/client',
       reportCompressedSize: true,
-      commonjsOptions: { transformMixedEsModules: true },
+      commonjsOptions: {transformMixedEsModules: true},
       target: ['es2020'],
     },
-    plugins: [analog({
-      nitro: {
-        preset: 'vercel',
-      },
-    }), nxViteTsPaths(), splitVendorChunkPlugin()],
+    plugins: [
+      analog(),
+      //   analog({
+      //   nitro: {
+      //     preset: 'vercel',
+      //   },
+      // }),
+      nxViteTsPaths(), splitVendorChunkPlugin()],
     test: {
       globals: true,
       environment: 'jsdom',
