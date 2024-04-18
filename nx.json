@@ -85,5 +85,5 @@
             }
         }
     },
-  "neverConnectToCloud": true
+    "neverConnectToCloud": true
 }
