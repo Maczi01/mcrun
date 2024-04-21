@@ -11,4 +11,6 @@ export const appRoutes: Route[] = [
         path: 'new',
         component: HeaderComponent,
     },
+    { path: ':name', component: HeaderComponent }
+
 ];

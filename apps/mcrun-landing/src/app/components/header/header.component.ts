@@ -5,7 +5,7 @@ import {RouterModule} from "@angular/router";
     standalone: true,
     selector: 'app-header',
     templateUrl: './header.component.html',
-  imports:[RouterModule]
+    imports:[RouterModule]
 
 })
 export class HeaderComponent {
