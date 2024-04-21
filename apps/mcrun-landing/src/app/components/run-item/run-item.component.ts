@@ -10,7 +10,7 @@ import {Router, RouterModule} from "@angular/router";
     imports: [DatePipe, RouterModule],
 })
 export class RunItemComponent {
-    @Input() run: Run;
+  @Input() run: Run;
 
   constructor(private router: Router) {}
 
