@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Run } from '../types';
-import {BehaviorSubject} from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -9,6 +9,7 @@ export class StateService {
     runList: Run[] = [
         {
             name: 'Together around',
+            id: 'together-around',
             place: 'Belfast',
             date: '2024-04-23',
             type: 'Flat run',
@@ -17,6 +18,7 @@ export class StateService {
         },
         {
             name: 'Run Omagh!',
+            id: 'run-omagh',
             place: 'Omagh',
             date: '2024-05-02',
             type: 'Walk',
@@ -25,6 +27,7 @@ export class StateService {
         },
         {
             name: 'Family run',
+            id: 'family-run',
             place: 'Ballymena',
             date: '2024-05-02',
             type: 'Flat run',
@@ -33,6 +36,7 @@ export class StateService {
         },
         {
             name: 'Windmill run',
+            id: 'windmill-run',
             place: 'Enniskillen',
             date: '2024-05-02',
             type: 'OCR',
@@ -40,14 +44,14 @@ export class StateService {
             longitude: -6.04676,
         },
     ];
-  activeRunSubject = new BehaviorSubject<Run | null>(null);
-  activeRun$ = this.activeRunSubject.asObservable();
+    activeRunSubject = new BehaviorSubject<Run | null>(null);
+    activeRun$ = this.activeRunSubject.asObservable();
 
-  setActiveRun(run: Run): void {
-    this.activeRunSubject.next(run);
-  }
+    setActiveRun(run: Run): void {
+        this.activeRunSubject.next(run);
+    }
 
-  getRuns(): Run[] {
-    return this.runList;
-  }
+    getRuns(): Run[] {
+        return this.runList;
+    }
 }

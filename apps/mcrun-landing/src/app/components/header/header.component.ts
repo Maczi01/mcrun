@@ -12,6 +12,7 @@ export class HeaderComponent {
     title = 'McRun';
     links = [
         { path: '/', title: 'Home' },
+        { path: '/runs', title: 'Runs' },
         { path: '/map', title: 'Map' },
         { path: '/about', title: 'About' },
         { path: '/contact', title: 'Contact' },

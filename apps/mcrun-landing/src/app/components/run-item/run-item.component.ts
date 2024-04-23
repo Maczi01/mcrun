@@ -3,6 +3,8 @@ import {DatePipe} from "@angular/common";
 import {Run} from "../../types";
 import {Router, RouterModule} from "@angular/router";
 
+
+
 @Component({
     standalone: true,
     selector: 'run-item-component',
@@ -14,7 +16,7 @@ export class RunItemComponent {
 
   constructor(private router: Router) {}
 
-  navigateToRun(runName: string): void {
-    this.router.navigate([runName]);
+  navigateToRun(id: string): void {
+    this.router.navigate([id]);
   }
 }
