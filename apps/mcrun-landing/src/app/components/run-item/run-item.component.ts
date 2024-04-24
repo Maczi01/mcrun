@@ -12,11 +12,15 @@ import {Router, RouterModule} from "@angular/router";
     imports: [DatePipe, RouterModule],
 })
 export class RunItemComponent {
+  // @ts-ignore
   @Input() run: Run;
 
   constructor(private router: Router) {}
 
   navigateToRun(id: string): void {
-    this.router.navigate([id]);
+    // navigate to '/runs/:id'
+    this.router.navigate(['/runs', id]);
+
+    // this.router.navigate([id]);
   }
 }
