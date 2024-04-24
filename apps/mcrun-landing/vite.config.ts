@@ -17,12 +17,12 @@ export default defineConfig(({mode}) => {
       target: ['es2020'],
     },
     plugins: [
-      analog(),
-      //   analog({
-      //   nitro: {
-      //     preset: 'vercel',
-      //   },
-      // }),
+      // analog(),
+        analog({
+        nitro: {
+          preset: 'vercel',
+        },
+      }),
       nxViteTsPaths(), splitVendorChunkPlugin()],
     test: {
       globals: true,
