@@ -1,7 +1,7 @@
 <div>
   <div class="mx-4 my-0">
-    @for (run of runs; track run.name) {
-    <run-item-component (click)="setActiveRun(run)" [run]="run"></run-item-component>
+    @for (run of runs; track run.slug) {
+    <run-item-component (click)="setActiveRun(run)" [run]="run.attributes"></run-item-component>
     }
   </div>
 </div>

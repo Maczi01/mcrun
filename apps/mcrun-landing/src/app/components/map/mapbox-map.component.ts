@@ -10,7 +10,7 @@ import { Run } from '../../types';
     templateUrl: './mapbox-map.component.html',
 })
 export class MapboxMapComponent implements OnInit {
-    // list: RunListState = {
+
     private runList = inject(StateService);
     map: mapboxgl.Map;
     style = 'mapbox://styles/mapbox/streets-v11';
@@ -50,13 +50,5 @@ export class MapboxMapComponent implements OnInit {
                 marker.getElement().style.backgroundColor = run === activeRun ? 'yellow' : ''; // Adjust the logic if needed
             });
         });
-
-        // this.map.on('load', () => {
-        //     this.runList.runList.forEach(place => {
-        //         new mapboxgl.Marker({ color: place.place === 'Enniskillen' ? 'red' : 'blue'})
-        //             .setLngLat([place.longitude, place.latitude])
-        //             .addTo(this.map);
-        //     });
-        // });
     }
 }

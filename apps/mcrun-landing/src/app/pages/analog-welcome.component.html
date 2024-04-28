@@ -1,6 +1,12 @@
 <main class="flex-1 mx-auto">
+<!--  @for (run of runs;track run.attributes.slug) {-->
+<!--      <p class="post__desc">{{ run.attributes.name }}</p>-->
+<!--      <p class="post__desc">{{ run.attributes.date }}</p>-->
+<!--      <p class="post__desc">{{ run.attributes.latitude }}</p>-->
+<!--      <p class="post__desc">{{ run.attributes.place }}</p>-->
+<!--    }-->
   <div class="grid grid-cols-1 sm:grid-cols-2 h-full">
-    <list-component/>
+    <list-component [runs]="runs" />
     <mapbox-map/>
   </div>
 </main>

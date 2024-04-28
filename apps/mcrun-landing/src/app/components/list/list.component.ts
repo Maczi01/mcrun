@@ -1,6 +1,9 @@
-import { Component, inject } from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import { RunItemComponent } from '../run-item/run-item.component';
+import {Run} from "../../types";
 import { StateService } from '../../service/state.service';
+// import {Run} from "../../types";
+// import {a} from "vitest/dist/reporters-MmQN-57K";
 
 @Component({
     standalone: true,
@@ -9,11 +12,10 @@ import { StateService } from '../../service/state.service';
     templateUrl: './list.component.html',
 })
 export class ListComponent {
-  stateService = inject(StateService);
 
-  get runs() {
-    return this.stateService.getRuns();
-  }
+  @Input() runs: any[];
+
+  stateService = inject(StateService);
 
   setActiveRun(run: any): void {
     this.stateService.setActiveRun(run);

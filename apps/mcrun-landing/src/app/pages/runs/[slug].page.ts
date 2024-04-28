@@ -1,24 +1,15 @@
 import { Component } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { injectContent, MarkdownComponent } from '@analogjs/content';
+import { AsyncPipe } from '@angular/common';
 
-export interface ProjectAttributes {
-    title: string;
-    slug: string;
-    description: string;
-    coverImage: string;
-}
+import { Run } from '../../types';
+
 @Component({
-    selector: 'subpage',
+    selector: 'app-blog-post',
     standalone: true,
-    templateUrl: './sub.component.html',
-    imports: [MarkdownComponent, AsyncPipe, NgIf],
+    imports: [AsyncPipe, MarkdownComponent],
+    templateUrl: './blog.component.html',
 })
-export default class SubComponent {
-    // @Input() name: string;
-
-    readonly project$ = injectContent<ProjectAttributes>({
-        param: 'slug',
-        subdirectory: 'projects',
-    });
+export default class HomeComponent {
+    readonly post$ = injectContent<Run>('slug');
 }

@@ -1,0 +1,7 @@
+@if (post$ | async; as post) {
+<article>
+<p>{{post.attributes.date}}</p>
+<img class="post__image" [src]="post.attributes.coverImage" />
+<analog-markdown [content]="post.content" />
+</article>
+}

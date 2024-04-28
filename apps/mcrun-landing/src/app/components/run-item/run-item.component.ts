@@ -1,9 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {DatePipe} from "@angular/common";
-import {Run} from "../../types";
-import {Router, RouterModule} from "@angular/router";
-
-
+import { Component, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Run } from '../../types';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
     standalone: true,
@@ -12,15 +10,14 @@ import {Router, RouterModule} from "@angular/router";
     imports: [DatePipe, RouterModule],
 })
 export class RunItemComponent {
-  // @ts-ignore
-  @Input() run: Run;
+    // @ts-ignore
+    @Input() run: Run;
 
-  constructor(private router: Router) {}
 
-  navigateToRun(id: string): void {
-    // navigate to '/runs/:id'
-    this.router.navigate(['/runs', id]);
+    constructor(private router: Router) {
+    }
 
-    // this.router.navigate([id]);
-  }
+    navigateToRun(slug: string): void {
+        this.router.navigate(['/runs', slug]);
+    }
 }
