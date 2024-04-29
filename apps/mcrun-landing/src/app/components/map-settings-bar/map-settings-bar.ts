@@ -8,7 +8,6 @@ import { DropdownComponent } from '../dropdown/dropdown';
     imports: [DropdownComponent],
 })
 export class MapSettingsBarComponent {
-    isOpen = false; // Dropdown state
 
     countiesIreland = [
         'Carlow',
@@ -40,17 +39,9 @@ export class MapSettingsBarComponent {
     ];
     countiesNorthernIreland = ['Antrim', 'Armagh', 'Down', 'Fermanagh', 'Londonderry', 'Tyrone'];
     counties = [...this.countiesIreland, ...this.countiesNorthernIreland].sort();
-    countiesLabel = 'Counties';
+    countiesLabel = 'County';
     runTypes = ['Road', 'Trail', 'Track', 'Treadmill', 'Virtual'];
     runTypeLabel = 'Run Type';
-    toggleDropdown(): void {
-        this.isOpen = !this.isOpen;
-    }
 
-    @HostListener('document:click', ['$event'])
-    closeDropdown(event: any): void {
-        if (!event.target.closest('#dropdownDefaultButton') && this.isOpen) {
-            this.isOpen = false;
-        }
-    }
+
 }
