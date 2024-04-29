@@ -4,6 +4,7 @@ slug: family-run
 latitude: 53.4239
 longitude: -7.94069
 place: Ballymena
+county: Offaly
 type: Flat run
 tags: family, fun
 description: Ballymena, around

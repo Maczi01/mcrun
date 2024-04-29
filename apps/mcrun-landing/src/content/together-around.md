@@ -4,6 +4,7 @@ slug: together-around
 latitude: 53.6272
 longitude: -8.18812
 place: Belfast
+county: Offaly
 type: Flat run
 tags: family, fun
 description: A run for everyone

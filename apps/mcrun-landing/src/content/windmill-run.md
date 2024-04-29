@@ -4,6 +4,7 @@ slug: windmill-run
 latitude: 54.5092
 longitude: -6.04676
 place: Enniskillen
+county: Offaly
 type: Flat run and walk
 tags: family, fun, ocr
 description: Around lake

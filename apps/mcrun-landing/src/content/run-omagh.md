@@ -4,6 +4,7 @@ slug: run-omagh
 latitude: 53.2735
 longitude: -7.77832032
 place: Omagh
+county: Offaly
 type: Flat run
 tags: family, fun
 description: Lets run in Omagh!
