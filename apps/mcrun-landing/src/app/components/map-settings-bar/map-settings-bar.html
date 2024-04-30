@@ -21,6 +21,7 @@
     </div>
 
     <mcrun-landing-map-dropdown
+        (selectionChange)="onCountyChange($event)"
         [items]="counties"
         [label]="countiesLabel"
     ></mcrun-landing-map-dropdown>

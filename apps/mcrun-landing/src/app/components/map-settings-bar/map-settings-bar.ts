@@ -9,7 +9,10 @@ import { DropdownComponent } from '../dropdown/dropdown';
 })
 export class MapSettingsBarComponent {
 
-    countiesIreland = [
+  @Output() handleCountyChange = new EventEmitter<string>();
+
+
+  countiesIreland = [
         'Carlow',
         'Cavan',
         'Clare',
@@ -42,4 +45,9 @@ export class MapSettingsBarComponent {
     countiesLabel = 'County';
     runTypes = ['Road', 'Trail', 'Track', 'Treadmill', 'Virtual'];
     runTypeLabel = 'Run Type';
+
+    onCountyChange(event: string): void {
+        this.handleCountyChange.emit(event);
+        console.log('settings-bar settings-bar:', event);
+    }
 }

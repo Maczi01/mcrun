@@ -1,7 +1,9 @@
-<main class="flex-1 mx-auto">
-  <mcrun-landing-map-settings-bar></mcrun-landing-map-settings-bar>
-  <div class="grid grid-cols-1 sm:grid-cols-2 h-full">
-    <list-component [runs]="runs" />
-    <mapbox-map/>
-  </div>
-</main>
+<section class="flex-1 mx-auto">
+    <mcrun-landing-map-settings-bar
+        (handleCountyChange)="handleCountyChange($event)"
+    ></mcrun-landing-map-settings-bar>
+    <div class="grid grid-cols-1 sm:grid-cols-2 h-full">
+        <list-component [runs]="filteredRuns" />
+        <mapbox-map />
+    </div>
+</section>

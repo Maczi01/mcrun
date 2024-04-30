@@ -9,7 +9,7 @@ export class DropdownComponent {
   @Input() items: string[] = [];
   @Input() label: string = '';
   isOpen = false;
-
+  @Output() selectionChange = new EventEmitter<string>();
 
   toggleDropdown(): void {
     this.isOpen = !this.isOpen;
@@ -24,6 +24,6 @@ export class DropdownComponent {
 
   onSelectionChange(event: string): void {
     this.isOpen = false;
-    console.log('Selected item:', event);
+    this.selectionChange.emit(event);
   }
 }

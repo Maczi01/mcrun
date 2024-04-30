@@ -3,9 +3,10 @@ import { HeaderComponent } from '../components/header/header.component';
 import { MapboxMapComponent } from '../components/map/mapbox-map.component';
 import { ListComponent } from '../components/list/list.component';
 import { FooterComponent } from '../components/footer/footer.component';
-import { injectContentFiles } from '@analogjs/content';
+import {ContentFile, injectContentFiles} from '@analogjs/content';
 import { MapSettingsBarComponent } from '../components/map-settings-bar/map-settings-bar';
 import { Run } from '../types';
+import { DropdownComponent } from '../components/dropdown/dropdown';
 
 @Component({
     selector: 'mcrun-landing-analog-welcome',
@@ -17,16 +18,17 @@ import { Run } from '../types';
         ListComponent,
         FooterComponent,
         MapSettingsBarComponent,
+        DropdownComponent,
     ],
 })
 export class AnalogWelcomeComponent {
     readonly runs = injectContentFiles<Run>();
 
-  filteredRuns: Run[] = [];
+    filteredRuns: ContentFile<Run>[] = [];
 
-  handleCountyChange(event: Event): void {
-    console.log('Selected county:', event)
-    this.filteredRuns = this.runs.filter(run => run.attributes.county === event.target.value);
-  }
-
+    handleCountyChange(event: string): void {
+        this.filteredRuns = this.runs.filter(
+            ({ attributes }) => attributes.county.toLowerCase() === event.toLowerCase(),
+        );
+    }
 }
