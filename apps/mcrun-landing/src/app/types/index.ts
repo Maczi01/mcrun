@@ -5,6 +5,7 @@ export interface Run {
     longitude: number;
     place: string;
     date: string;
+    county: string;
     type: string;
     description: string;
     tags: string[];

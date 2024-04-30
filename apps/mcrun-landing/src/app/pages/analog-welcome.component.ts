@@ -21,4 +21,12 @@ import { Run } from '../types';
 })
 export class AnalogWelcomeComponent {
     readonly runs = injectContentFiles<Run>();
+
+  filteredRuns: Run[] = [];
+
+  handleCountyChange(event: Event): void {
+    console.log('Selected county:', event)
+    this.filteredRuns = this.runs.filter(run => run.attributes.county === event.target.value);
+  }
+
 }

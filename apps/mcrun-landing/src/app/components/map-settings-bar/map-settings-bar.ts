@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import { DropdownComponent } from '../dropdown/dropdown';
 
 @Component({
@@ -42,6 +42,4 @@ export class MapSettingsBarComponent {
     countiesLabel = 'County';
     runTypes = ['Road', 'Trail', 'Track', 'Treadmill', 'Virtual'];
     runTypeLabel = 'Run Type';
-
-
 }
