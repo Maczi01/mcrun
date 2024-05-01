@@ -7,7 +7,7 @@ import { Component, Output, EventEmitter, Input, HostListener } from '@angular/c
 })
 export class DropdownComponent {
   @Input() items: string[] = [];
-  @Input() label: string = '';
+  @Input() label = '';
   isOpen = false;
   @Output() selectionChange = new EventEmitter<string>();
 
